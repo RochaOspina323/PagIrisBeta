@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Productos</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .product-card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Test de Productos - IrisColombiaModa</h1>
+    
+    <div class="test-section">
+        <h2>Test de Carga de Datos</h2>
+        <div id="dataTest">Cargando...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Bodys (Total: <span id="bodysCount">0</span>)</h2>
+        <div id="bodysGrid" class="product-grid"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Blusas (Total: <span id="blusasCount">0</span>)</h2>
+        <div id="blusasGrid" class="product-grid"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Crop Tops (Total: <span id="cropTopsCount">0</span>)</h2>
+        <div id="cropTopsGrid" class="product-grid"></div>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script>
+        function testProducts() {
+            console.log('Iniciando test de productos...');
+            
+            // Test 1: Verificar que productsData existe
+            if (typeof productsData !== 'undefined') {
+                document.getElementById('dataTest').innerHTML = '✅ productsData cargado correctamente';
+                console.log('productsData:', productsData);
+            } else {
+                document.getElementById('dataTest').innerHTML = '❌ productsData no está disponible';
+                return;
+            }
+            
+            // Test 2: Mostrar conteos
+            const bodysCount = productsData.bodys ? productsData.bodys.length : 0;
+            const blusasCount = productsData.blusas ? productsData.blusas.length : 0;
+            const cropTopsCount = productsData['crop-tops'] ? productsData['crop-tops'].length : 0;
+            
+            document.getElementById('bodysCount').textContent = bodysCount;
+            document.getElementById('blusasCount').textContent = blusasCount;
+            document.getElementById('cropTopsCount').textContent = cropTopsCount;
+            
+            // Test 3: Renderizar productos
+            renderTestProducts('bodys', 'bodysGrid');
+            renderTestProducts('blusas', 'blusasGrid');
+            renderTestProducts('crop-tops', 'cropTopsGrid');
+        }
+        
+        function renderTestProducts(category, gridId) {
+            const grid = document.getElementById(gridId);
+            const products = productsData[category] || [];
+            
+            if (products.length > 0) {
+                grid.innerHTML = products.map(product => `
+                    <div class="product-card">
+                        <h4>${product.name}</h4>
+                        <p><strong>ID:</strong> ${product.id}</p>
+                        <p><strong>Subcategoría:</strong> ${product.subcategory}</p>
+                        <p><strong>Precio:</strong> ${product.variants.map(v => v.name + ': $' + v.price).join(', ')}</p>
+                        <p><strong>Imagen:</strong> ${product.image}</p>
+                    </div>
+                `).join('');
+            } else {
+                grid.innerHTML = '<p>No hay productos en esta categoría</p>';
+            }
+        }
+        
+        // Ejecutar test cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM cargado, ejecutando test...');
+            setTimeout(testProducts, 100);
+        });
+    </script>
+</body>
+</html>

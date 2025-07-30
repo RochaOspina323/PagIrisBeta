@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IrisColombiaModa - Moda Femenina Elegante</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="Logos/logo_1.jpg" alt="IrisColombiaModa" class="logo-img">
+                    <span class="logo-text">IrisColombiaModa</span>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#productos" class="nav-link">Productos <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="bodys.html">Bodys</a>
+                            <a href="blusas.html">Blusas</a>
+                            <a href="crop-tops.html">Crop Tops</a>
+                        </div>
+                    </li>
+                    <li><a href="#promociones" class="nav-link">Promociones</a></li>
+                    <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+
+                <div class="nav-icons">
+                    <button class="cart-btn" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <button class="menu-toggle" onclick="toggleMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Última Colección</h1>
+            <p>Descubre la elegancia y sofisticación en cada prenda</p>
+            <button class="cta-btn" onclick="scrollToSection('productos')">Ver Colección</button>
+        </div>
+        <div class="hero-image">
+            <div class="hero-carousel">
+                <div class="carousel-container">
+                    <img src="img/Fotos-Index/Modelo IrisColombiaModa.jpg" alt="Modelo IrisColombiaModa 1"
+                        class="hero-img active">
+                    <img src="img/Fotos-Index/Modelo IrisColombiaModa2.jpg" alt="Modelo IrisColombiaModa 2"
+                        class="hero-img">
+                    <img src="img/Fotos-Index/Modelo IrisColombiaModa3.jpg" alt="Modelo IrisColombiaModa 3"
+                        class="hero-img">
+                    <img src="img/Fotos-Index/Modelo IrisColombiaModa4.jpg" alt="Modelo IrisColombiaModa 4"
+                        class="hero-img">
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="goToSlide(0)"></span>
+                    <span class="indicator" onclick="goToSlide(1)"></span>
+                    <span class="indicator" onclick="goToSlide(2)"></span>
+                    <span class="indicator" onclick="goToSlide(3)"></span>
+                </div>
+                <button class="carousel-btn prev" onclick="previousSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Section -->
+    <section id="productos" class="products-section">
+        <div class="container">
+            <h2>Nuestra Colección</h2>
+            <p class="collection-subtitle">Descubre nuestras categorías de moda femenina</p>
+
+            <div class="categories-grid">
+                <div class="category-card" onclick="window.location.href='bodys.html'">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>BODYS</h3>
+                    <p>Sin mangas, con mangas, primavera y fiesta</p>
+                    <div class="category-price-range">
+                        Desde $49.990
+                    </div>
+                    <button class="category-btn">Ver Colección</button>
+                </div>
+
+                <div class="category-card" onclick="window.location.href='blusas.html'">
+                    <div class="category-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>BLUSAS</h3>
+                    <p>Básicas y de moda para cualquier ocasión</p>
+                    <div class="category-price-range">
+                        Desde $39.990
+                    </div>
+                    <button class="category-btn">Ver Colección</button>
+                </div>
+
+                <div class="category-card" onclick="window.location.href='crop-tops.html'">
+                    <div class="category-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>CROP TOPS</h3>
+                    <p>Básicos y Rave Edition para looks únicos</p>
+                    <div class="category-price-range">
+                        Desde $29.990
+                    </div>
+                    <button class="category-btn">Ver Colección</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promociones -->
+    <section id="promociones" class="promotions-section">
+        <div class="container">
+            <h2>Promociones Especiales</h2>
+            <div class="promotions-grid">
+                <div class="promo-card">
+                    <h3>Envío Gratis</h3>
+                    <p>En compras superiores a $150.000</p>
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <div class="promo-card">
+                    <h3>Descuento 15%</h3>
+                    <p>En tu segunda compra</p>
+                    <i class="fas fa-percentage"></i>
+                </div>
+                <div class="promo-card">
+                    <h3>Nueva Colección</h3>
+                    <p>Cada mes nuevos diseños</p>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="testimonials-section">
+        <div class="container">
+            <h2>Lo que dicen nuestras clientas</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Excelente calidad y diseños únicos. Los bodys son súper cómodos y elegantes."</p>
+                    <h4>- María González</h4>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Me encanta la variedad de blusas. Perfectas para cualquier ocasión."</p>
+                    <h4>- Ana Rodríguez</h4>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Atención al cliente excepcional y envíos súper rápidos."</p>
+                    <h4>- Laura Martínez</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2>Contáctanos</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+57 319 664 2167</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@iriscolombiamod.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bogotá, Colombia</span>
+                    </div>
+
+                    <div class="social-links">
+                        <h4>Síguenos</h4>
+                        <a href="https://www.instagram.com/iriscolombiamoda/" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/573196642167" target="_blank" class="social-link"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@iriscolombiamoda" target="_blank" class="social-link"><i
+                                class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <form class="contact-form" onsubmit="submitContactForm(event)">
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="tel" placeholder="Teléfono">
+                    <textarea placeholder="Mensaje" rows="5" required></textarea>
+                    <button type="submit">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>IrisColombiaModa</h3>
+                    <p>Moda femenina elegante y sofisticada para la mujer moderna.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#promociones">Promociones</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="#"
+                                onclick="openImageModal('img/Fotos-Index/TyC.png', 'Términos y Condiciones')">Términos y
+                                Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Cambios y Devoluciones</a></li>
+                        <li><a href="#"
+                                onclick="openImageModal('img/Fotos-Index/Guia-Medidas.png', 'Guía de Medidas')">Guía de
+                                Medidas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IrisColombiaModa. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carrito de Compras (Modal) -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Carrito de Compras</h3>
+                <button class="close-cart" onclick="toggleCart()">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Los items del carrito se cargarán aquí -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <strong>Total: $<span id="cartTotal">0</span></strong>
+                </div>
+                <button class="checkout-btn" onclick="proceedToCheckout()">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Producto -->
+    <div id="productModal" class="product-modal">
+        <div class="product-modal-content">
+            <button class="close-modal" onclick="closeProductModal()">&times;</button>
+            <div class="product-modal-body" id="productModalBody">
+                <!-- El contenido del producto se cargará aquí -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar imágenes -->
+    <div id="imageModal" class="image-modal">
+        <div class="image-modal-content">
+            <button class="close-image-modal" onclick="closeImageModal()">&times;</button>
+            <div class="image-modal-header">
+                <h3 id="imageModalTitle">Imagen</h3>
+            </div>
+            <div class="image-modal-body">
+                <img id="imageModalImg" src="" alt="" class="modal-image">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/image-modal-fix.js"></script>
+    <script src="js/mobile-carousel-simple.js"></script>
+    <script src="js/carousel-mobile-fix.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart-fixed.js"></script>
+    <script src="js/carousel-simple.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
